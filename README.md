@@ -1,1 +1,2 @@
-#Juegaciam, un inicio de un juego en PHP usando sesiones
+JUEGACIAM
+El boceto de un juego para modificar y mejorar. Construye sin fin.

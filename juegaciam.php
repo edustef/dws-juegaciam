@@ -10,18 +10,7 @@ include('cabecera.php');
 //Huerto: 200 comida, 50 madera
 //Mercado/recaudador: 50 madera, 50 piedra y 100 oro
 
-//session_destroy(); 
-
-//Reduciendo el oro(1 cada 5 segundos) y la comida (2 cada 5 segundos) 
-if (isset($_SESSION["intervalo"])) {
-	// Calcular el tiempo de vida de la sesión (TTL = Time To Live)
-	$sessionTTL2 = time() - $_SESSION["intervalo"];
-	$num_decremento = $sessionTTL2 / 5;
-	$_SESSION['suministros']['oro'] -= round($num_decremento);
-	$_SESSION['suministros']['comida'] -= round($num_decremento * 2);
-}
-
-$_SESSION["intervalo"] = time();
+//session_destroy();
 
 //Stock inicial 2000 de cada
 if (!isset($_SESSION['suministros'])) {
@@ -52,6 +41,26 @@ $num_aserraderos = $_SESSION['edificios']['aserraderos'];
 $num_canteras = $_SESSION['edificios']['canteras'];
 $num_huertos = $_SESSION['edificios']['huertos'];
 $num_mercados = $_SESSION['edificios']['mercados'];
+
+//Reduciendo el oro(1 cada 5 segundos) y la comida (2 cada 5 segundos) 
+if (isset($_SESSION["intervalo"])) {
+	// Calcular el tiempo de vida de la sesión (TTL = Time To Live)
+	$sessionTTL2 = time() - $_SESSION["intervalo"];
+	$tiempo_relativo = $sessionTTL2 / 5;
+
+	//decrementar materias primas
+	$_SESSION['suministros']['oro'] -= round($tiempo_relativo);
+	$_SESSION['suministros']['comida'] -= round($tiempo_relativo * 2);
+
+	// generar materia prima
+	// Moví esto aquí porque usa la misma if y el $num_decremento que cambié a $tiempo_relativo para que tenga más sentido
+	$_SESSION['suministros']['madera'] += round($tiempo_relativo * 10) * $num_aserraderos;
+	$_SESSION['suministros']['marmol'] +=  round($tiempo_relativo * 10) * $num_canteras;
+	$_SESSION['suministros']['comida'] +=  round($tiempo_relativo * 10) * $num_huertos;
+	$_SESSION['suministros']['oro'] += round($tiempo_relativo * 2) * $num_mercados;
+}
+
+$_SESSION["intervalo"] = time();
 
 //Construimos templo
 if (isset($_POST['templo_x'])) {

@@ -29,7 +29,7 @@ $_SESSION["timeout"] = time();
     <title>PHP</title>
     <header>
 
-        <div id="container" style="margin-left: 22%; margin-bottom: -5%;">
+        <div id="container" style="margin-left: 31%; margin-bottom: -5%;">
 
             <p ><a href="#" >JuegaCiam</a></p>
 

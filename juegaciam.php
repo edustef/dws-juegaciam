@@ -12,7 +12,6 @@ include('cabecera.php');
 //Huerto: 200 comida, 50 madera
 //Mercado/recaudador: 50 madera, 50 piedra y 100 oro
 
-<<<<<<< HEAD
 //session_destroy(); 
 
 //Reduciendo el oro(1 cada 5 segundos) y la comida (2 cada 5 segundos) 
@@ -26,10 +25,8 @@ if (isset($_SESSION["intervalo"])) {
 
 $_SESSION["intervalo"] = time();
  
-=======
 //session_destroy();
 
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 //Stock inicial 2000 de cada
 if (!isset($_SESSION['suministros'])) {
 	//La primera vez, para crear la sesión
@@ -49,10 +46,7 @@ if (!isset($_SESSION['suministros'])) {
 	$_SESSION['edificios']['mercados'] = 0;
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 $oro = $_SESSION['suministros']['oro'];
 $madera = $_SESSION['suministros']['madera'];
 $comida = $_SESSION['suministros']['comida'];
@@ -64,8 +58,6 @@ $num_canteras = $_SESSION['edificios']['canteras'];
 $num_huertos = $_SESSION['edificios']['huertos'];
 $num_mercados = $_SESSION['edificios']['mercados'];
 
-<<<<<<< HEAD
-=======
 //Reduciendo el oro(1 cada 5 segundos) y la comida (2 cada 5 segundos) 
 if (isset($_SESSION["intervalo"])) {
 	// Calcular el tiempo de vida de la sesión (TTL = Time To Live)
@@ -86,7 +78,6 @@ if (isset($_SESSION["intervalo"])) {
 
 $_SESSION["intervalo"] = time();
 
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 //Construimos templo
 if (isset($_POST['templo_x'])) {
 	//Mirar si hay recursos
@@ -98,15 +89,9 @@ if (isset($_POST['templo_x'])) {
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 100;
 		$_SESSION['suministros']['marmol'] -= 50;
-<<<<<<< HEAD
 		$_SESSION['suministros']['oro'] -= 50; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
-=======
-		$_SESSION['suministros']['oro'] -= 50;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 }
 //Construimos cuartel
 if (isset($_POST['cuartel_x'])) {
@@ -120,15 +105,9 @@ if (isset($_POST['cuartel_x'])) {
 		$_SESSION['suministros']['madera'] -= 75;
 		$_SESSION['suministros']['marmol'] -= 25;
 		$_SESSION['suministros']['oro'] -= 20;
-<<<<<<< HEAD
 		$_SESSION['suministros']['comida'] -= 50; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
-=======
-		$_SESSION['suministros']['comida'] -= 50;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 }
 
 //Construimos aserradero
@@ -141,15 +120,9 @@ if (isset($_POST['aserradero_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 200;
-<<<<<<< HEAD
 		$_SESSION['suministros']['marmol'] -= 50; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
-=======
-		$_SESSION['suministros']['marmol'] -= 50;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 }
 
 //Construimos cantera
@@ -162,15 +135,9 @@ if (isset($_POST['cantera_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
-<<<<<<< HEAD
 		$_SESSION['suministros']['marmol'] -= 200; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>>";
-=======
-		$_SESSION['suministros']['marmol'] -= 200;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 }
 
 //Construimos huerto
@@ -183,15 +150,9 @@ if (isset($_POST['huerto_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
-<<<<<<< HEAD
 		$_SESSION['suministros']['comida'] -= 200; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
-=======
-		$_SESSION['suministros']['comida'] -= 200;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 }
 
 //Construimos mercado
@@ -205,7 +166,6 @@ if (isset($_POST['mercado_x'])) {
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
 		$_SESSION['suministros']['marmol'] -= 50;
-<<<<<<< HEAD
 		$_SESSION['suministros']['oro'] -= 100; 
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
@@ -231,21 +191,11 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 <div id="juego">
 <section>
 
-=======
-		$_SESSION['suministros']['oro'] -= 100;
-	} else
-		echo "<div class='alert alert-danger'>No hay materia prima suficiente</div>";
-}
-?>
-
-<section>
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 	<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
 	<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
 	<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
 	<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
 
-<<<<<<< HEAD
 
 	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"  id="imgObjt">
 		<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
@@ -254,24 +204,11 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 		<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
 		<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
 		<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
-=======
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-		<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
-		<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
-		<input type="image" src="imgs/crear_aserradero.gif" name="aserradero" value="aserradero">
-		<input type="image" src="imgs/crear_cantera.gif" name="cantera" value="cantera">
-		<input type="image" src="imgs/crear_huerto.gif" name="huerto" value="huerto">
-		<input type="image" src="imgs/crear_mercado.gif" name="mercado" value="mercado">
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 	</form>
 </section>
 
 <?php
-<<<<<<< HEAD
 print "<p id='cantidades'>";
-=======
-print "<p>";
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 print "<span>Templos: $num_templos</span>&nbsp;&nbsp;&nbsp;";
 print "<span>Cuarteles: $num_cuarteles</span>&nbsp;&nbsp;&nbsp;";
 print "<span>Aserraderos: $num_aserraderos</span>&nbsp;&nbsp;&nbsp;";
@@ -281,11 +218,7 @@ print "<span>Mercados: $num_mercados</span>";
 print "</p>";
 ?>
 
-<<<<<<< HEAD
 </div>
-=======
-
->>>>>>> 936cf8b814abd17937d94937bfbc935a5ef19853
 <?php
 //PIE DE PÁGINA
 include('pie.php');

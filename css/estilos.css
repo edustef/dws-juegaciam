@@ -9,16 +9,18 @@
     font-family: myFirstFont;
     src: url('../fonts/Dosis-Regular.ttf');
 }
-
+/*Vista del juego centralizada*/
 #juego{
 	margin: 10% 0 0 30%;
 }
 
+/*Animacion de imagenes*/
 #imgObjt input:hover{
 	transform: scale(0.8);
 	transition: all 0.3s linear;
 }
 
+/*Contador de las cantidades + animacion + color*/
 #cantidades{
 	margin-top: -47%;
 	margin-left: -2%;
@@ -33,7 +35,7 @@
 #cantidades span{
 	color: hotpink;
 }
-
+/*************************************************************/
 body {
   	font-family: myFirstFont;
   	font-size: 1.2em;

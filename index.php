@@ -11,7 +11,7 @@
 <body style="background-color: black;">
     <header>
         <h1 style="font-size: 50px;color:white; text-align: center; margin-top:5%">JUEGOS 2020</h1>
-        <div id="container" style="margin-left: 30%; margin-top: 10%;">
+        <div id="container" style="margin-left: 37%; margin-top: 10%;">
 
             <p><a href='juegaciam.php'>Juegaciam</a></p>
 

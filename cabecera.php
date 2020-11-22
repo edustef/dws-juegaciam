@@ -18,7 +18,6 @@ if (isset($_SESSION["timeout"])) {
 // El siguiente key se crea cuando se inicia sesión
 $_SESSION["timeout"] = time();
 
-
 ?>
 
 <!DOCTYPE html>

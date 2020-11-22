@@ -1,5 +1,4 @@
-<link rel="stylesheet" href="css/estilos.css">
-<link rel="stylesheet" href="css/titulo.css">
+<link rel="stylesheet" href="css/style.css">
 <?php
 //CABECERA DE HTML
 include('cabecera.php');
@@ -24,7 +23,7 @@ if (isset($_SESSION["intervalo"])) {
 }
 
 $_SESSION["intervalo"] = time();
- 
+
 //session_destroy();
 
 //Stock inicial 2000 de cada
@@ -89,7 +88,7 @@ if (isset($_POST['templo_x'])) {
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 100;
 		$_SESSION['suministros']['marmol'] -= 50;
-		$_SESSION['suministros']['oro'] -= 50; 
+		$_SESSION['suministros']['oro'] -= 50;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
@@ -105,7 +104,7 @@ if (isset($_POST['cuartel_x'])) {
 		$_SESSION['suministros']['madera'] -= 75;
 		$_SESSION['suministros']['marmol'] -= 25;
 		$_SESSION['suministros']['oro'] -= 20;
-		$_SESSION['suministros']['comida'] -= 50; 
+		$_SESSION['suministros']['comida'] -= 50;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
@@ -120,7 +119,7 @@ if (isset($_POST['aserradero_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 200;
-		$_SESSION['suministros']['marmol'] -= 50; 
+		$_SESSION['suministros']['marmol'] -= 50;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
@@ -135,7 +134,7 @@ if (isset($_POST['cantera_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
-		$_SESSION['suministros']['marmol'] -= 200; 
+		$_SESSION['suministros']['marmol'] -= 200;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>>";
 }
@@ -150,7 +149,7 @@ if (isset($_POST['huerto_x'])) {
 
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
-		$_SESSION['suministros']['comida'] -= 200; 
+		$_SESSION['suministros']['comida'] -= 200;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
@@ -166,7 +165,7 @@ if (isset($_POST['mercado_x'])) {
 		//Decrementar stock
 		$_SESSION['suministros']['madera'] -= 50;
 		$_SESSION['suministros']['marmol'] -= 50;
-		$_SESSION['suministros']['oro'] -= 100; 
+		$_SESSION['suministros']['oro'] -= 100;
 	} else
 		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
@@ -187,36 +186,38 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 
 ?>
 
-
 <div id="juego">
-<section>
+	<figure id="bg">
+		<img src="imgs/ikariam.png">
+	</figure>
+	<section>
 
-	<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
-	<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
-	<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
-	<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
+		<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
+		<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
+		<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
+		<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
 
 
-	<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post"  id="imgObjt">
-		<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
-		<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
-		<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
-		<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
-		<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
-		<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
-	</form>
-</section>
+		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="imgObjt">
+			<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
+			<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
+			<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
+			<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
+			<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
+			<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
+		</form>
+	</section>
 
-<?php
-print "<p id='cantidades'>";
-print "<span>Templos: $num_templos</span>&nbsp;&nbsp;&nbsp;";
-print "<span>Cuarteles: $num_cuarteles</span>&nbsp;&nbsp;&nbsp;";
-print "<span>Aserraderos: $num_aserraderos</span>&nbsp;&nbsp;&nbsp;";
-print "<span>Canteras: $num_canteras</span>&nbsp;&nbsp;&nbsp;";
-print "<span>Huertos: $num_huertos</span>&nbsp;&nbsp;&nbsp;";
-print "<span>Mercados: $num_mercados</span>";
-print "</p>";
-?>
+	<?php
+	print "<p id='cantidades'>";
+	print "<span>Templos: $num_templos</span>&nbsp;&nbsp;&nbsp;";
+	print "<span>Cuarteles: $num_cuarteles</span>&nbsp;&nbsp;&nbsp;";
+	print "<span>Aserraderos: $num_aserraderos</span>&nbsp;&nbsp;&nbsp;";
+	print "<span>Canteras: $num_canteras</span>&nbsp;&nbsp;&nbsp;";
+	print "<span>Huertos: $num_huertos</span>&nbsp;&nbsp;&nbsp;";
+	print "<span>Mercados: $num_mercados</span>";
+	print "</p>";
+	?>
 
 </div>
 <?php

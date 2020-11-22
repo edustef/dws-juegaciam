@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*************************************************************/
+#bg {
+  max-width: 800px;
+  margin: 0 auto;
+}
+#bg img {
+  width: 100%;
+}

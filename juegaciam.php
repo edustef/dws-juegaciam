@@ -187,18 +187,9 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 ?>
 
 <div id="juego">
-	<figure id="bg">
-		<img src="imgs/ikariam.png">
-	</figure>
+
 	<section>
-
-		<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
-		<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
-		<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
-		<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
-
-
-		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="imgObjt">
+		<form class="sidebar" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
 			<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
 			<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
 			<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
@@ -207,17 +198,31 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 			<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
 		</form>
 	</section>
+	<figure id="bg">
+		<img src="imgs/ikariam.png">
+	</figure>
+	<section class="sidebar">
+		<div>
+			<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
+			<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
+			<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
+			<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
+		</div>
+		<?php
+		echo '
+			<div>
+				<span>Templos:' . $num_templos . '</span>
+				<span>Cuarteles:' . $num_cuarteles . '</span>
+				<span>Aserraderos:' . $num_aserraderos . '</span>
+				<span>Canteras:' . $num_canteras . '</span>
+				<span>Huertos:' . $num_huertos . '</span>
+				<span>Mercados:' . $num_mercados . '</span>
+			</div>
+		';
+		?>
+	</section>
 
-	<?php
-	print "<p id='cantidades'>";
-	print "<span>Templos: $num_templos</span>&nbsp;&nbsp;&nbsp;";
-	print "<span>Cuarteles: $num_cuarteles</span>&nbsp;&nbsp;&nbsp;";
-	print "<span>Aserraderos: $num_aserraderos</span>&nbsp;&nbsp;&nbsp;";
-	print "<span>Canteras: $num_canteras</span>&nbsp;&nbsp;&nbsp;";
-	print "<span>Huertos: $num_huertos</span>&nbsp;&nbsp;&nbsp;";
-	print "<span>Mercados: $num_mercados</span>";
-	print "</p>";
-	?>
+
 
 </div>
 <?php

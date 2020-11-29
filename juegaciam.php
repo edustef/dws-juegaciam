@@ -187,29 +187,27 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 ?>
 
 <div id="juego">
-
-	<section>
-		<form class="sidebar" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-			<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
-			<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
-			<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
-			<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
-			<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
-			<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
-		</form>
-	</section>
+	<form class="sidebar" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+		<input class="crear-edificio" type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
+		<input class="crear-edificio" type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
+		<input class="crear-edificio" type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
+		<input class="crear-edificio" type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
+		<input class="crear-edificio" type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
+		<input class="crear-edificio" type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
+	</form>
 	<figure id="bg">
 		<img src="imgs/ikariam.png">
 	</figure>
 	<section class="sidebar">
-		<div>
-			<h3 id="oro"><?php print $_SESSION['suministros']['oro']; ?></h3>
-			<h3 id="madera"><?php print $_SESSION['suministros']['madera']; ?></h3>
-			<h3 id="comida"><?php print $_SESSION['suministros']['comida']; ?></h3>
-			<h3 id="marmol"><?php print $_SESSION['suministros']['marmol']; ?></h3>
-		</div>
-		<?php
-		echo '
+		<div class="recursos">
+			<div>
+				<h3 id="oro">ORO: <?php print $_SESSION['suministros']['oro']; ?></h3>
+				<h3 id="madera">MADERA: <?php print $_SESSION['suministros']['madera']; ?></h3>
+				<h3 id="comida">COMIDA: <?php print $_SESSION['suministros']['comida']; ?></h3>
+				<h3 id="marmol">MARMOL: <?php print $_SESSION['suministros']['marmol']; ?></h3>
+			</div>
+			<?php
+			echo '
 			<div>
 				<span>Templos:' . $num_templos . '</span>
 				<span>Cuarteles:' . $num_cuarteles . '</span>
@@ -218,8 +216,9 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 				<span>Huertos:' . $num_huertos . '</span>
 				<span>Mercados:' . $num_mercados . '</span>
 			</div>
-		';
-		?>
+			';
+			?>
+		</div>
 	</section>
 
 

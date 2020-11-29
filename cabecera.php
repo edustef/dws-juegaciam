@@ -11,7 +11,7 @@ if (isset($_SESSION["timeout"])) {
   $sessionTTL = time() - $_SESSION["timeout"];
   if ($sessionTTL > $inactividad) {
     session_destroy();
-    header("Location: logout.php");
+    header("Location: login.php");
   }
 }
 
@@ -29,7 +29,10 @@ $_SESSION["timeout"] = time();
   <header>
 
     <nav>
-      <p><a href="#">JuegaCiam</a></p>
+      <p class="logo"><a href="#">JuegaCiam</a></p>
+      <p><a href="#">Cargar Partida</a></p>
+      <p><a href="#">Guardar Partida</a></p>
+      <p><a href="#"></a></p>
     </nav>
   </header>
 </head>

@@ -1,7 +1,21 @@
-<link rel="stylesheet" href="css/style.css">
 <?php
 //CABECERA DE HTML
-include('cabecera.php');
+
+header("Refresh:5 url=juegaciam");
+// Establecer tiempo de vida de la sesión en segundos
+$inactividad = 60 * 15;
+// Comprobar si $_SESSION["timeout"] está establecida
+if (isset($_SESSION["timeout"])) {
+	// Calcular el tiempo de vida de la sesión (TTL = Time To Live)
+	$sessionTTL = time() - $_SESSION["timeout"];
+	if ($sessionTTL > $inactividad) {
+		session_destroy();
+		header("Location: login.php");
+	}
+}
+
+// El siguiente key se crea cuando se inicia sesión
+$_SESSION["timeout"] = time();
 
 //Templo = 100 madera, 50 piedra, 50 oro
 //Almacen = 150 madera, 25 piedra, 100 comida
@@ -183,11 +197,10 @@ $_SESSION['suministros']['comida'] += 10 * $num_huertos;
 // Por cada MERCADO 2 oro / 5 seg
 $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 
-
 ?>
 
 <div id="juego">
-	<form class="sidebar" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+	<form class="sidebar" action="/juegaciam" method="post">
 		<input class="crear-edificio" type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
 		<input class="crear-edificio" type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
 		<input class="crear-edificio" type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
@@ -224,7 +237,3 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 
 
 </div>
-<?php
-//PIE DE PÁGINA
-include('pie.php');
-?>

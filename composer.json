@@ -1,0 +1,12 @@
+{
+    "name": "eduar/dws-juegaciam",
+    "require": {
+        "edustef/php-mvc-framework": "^1.0",
+        "vlucas/phpdotenv": "^5.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\" : "./src"
+        }
+    }
+}

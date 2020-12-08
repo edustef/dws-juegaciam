@@ -2,7 +2,8 @@
 
 use edustef\mvcFrame\Application;
 
-$flash = Application::$app->session->getFlashSession('success');
+$app = Application::$app;
+$flash = $app->session->getFlashSession('success');
 
 ?>
 <!DOCTYPE html>
@@ -22,15 +23,14 @@ $flash = Application::$app->session->getFlashSession('success');
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">Sign Up</a>
-            </li>
+            <?php if ($app->isGuest()) : ?>
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signup">Sign Up</a>
+              </li>
+            <?php endif ?>
           </ul>
         </div>
       </div>

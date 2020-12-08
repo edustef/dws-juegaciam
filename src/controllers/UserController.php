@@ -12,10 +12,7 @@ use app\models\LoginUser;
 
 class UserController extends Controller
 {
-  public function __construct()
-  {
-    $this->registerMiddleware(new AuthMiddleware(['profile']));
-  }
+
 
   public function login(Request $request, Response $response)
   {
@@ -54,11 +51,7 @@ class UserController extends Controller
   public function logout(Request $request, Response $response)
   {
     Application::$app->logout();
+    Application::$app->session->setFlashSession('success', 'You have logged out!');
     $response->redirect('/');
-  }
-
-  public function profile()
-  {
-    return $this->render('profile');
   }
 }

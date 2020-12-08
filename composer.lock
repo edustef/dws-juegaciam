@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "edustef/php-mvc-framework",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/edustef/php-mvc-framework.git",
-                "reference": "960ab79812204e8f8b8a1647d5be583ae4d2250a"
+                "reference": "32573d5c6c14382483eb0d5743af60b035c79872"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edustef/php-mvc-framework/zipball/960ab79812204e8f8b8a1647d5be583ae4d2250a",
-                "reference": "960ab79812204e8f8b8a1647d5be583ae4d2250a",
+                "url": "https://api.github.com/repos/edustef/php-mvc-framework/zipball/32573d5c6c14382483eb0d5743af60b035c79872",
+                "reference": "32573d5c6c14382483eb0d5743af60b035c79872",
                 "shasum": ""
             },
             "type": "library",
@@ -35,9 +35,9 @@
             ],
             "support": {
                 "issues": "https://github.com/edustef/php-mvc-framework/issues",
-                "source": "https://github.com/edustef/php-mvc-framework/tree/v1.0.3"
+                "source": "https://github.com/edustef/php-mvc-framework/tree/v1.0.4"
             },
-            "time": "2020-12-07T17:42:23+00:00"
+            "time": "2020-12-08T19:22:15+00:00"
         },
         {
             "name": "graham-campbell/result-type",

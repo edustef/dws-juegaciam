@@ -1,6 +1,6 @@
 <?php
 
-namespace app\components;
+namespace app\views\components;
 
 use edustef\mvcFrame\Model;
 

@@ -199,41 +199,159 @@ $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 
 ?>
 
-<div id="juego">
-	<form class="sidebar" action="/juegaciam" method="post">
-		<input class="crear-edificio" type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
-		<input class="crear-edificio" type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
-		<input class="crear-edificio" type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
-		<input class="crear-edificio" type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
-		<input class="crear-edificio" type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
-		<input class="crear-edificio" type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
-	</form>
-	<figure id="bg">
-		<img src="imgs/ikariam.png">
-	</figure>
-	<section class="sidebar">
-		<div class="recursos">
-			<div>
-				<h3 id="oro">ORO: <?php print $_SESSION['suministros']['oro']; ?></h3>
-				<h3 id="madera">MADERA: <?php print $_SESSION['suministros']['madera']; ?></h3>
-				<h3 id="comida">COMIDA: <?php print $_SESSION['suministros']['comida']; ?></h3>
-				<h3 id="marmol">MARMOL: <?php print $_SESSION['suministros']['marmol']; ?></h3>
-			</div>
-			<?php
-			echo '
-			<div>
-				<span>Templos:' . $num_templos . '</span>
-				<span>Cuarteles:' . $num_cuarteles . '</span>
-				<span>Aserraderos:' . $num_aserraderos . '</span>
-				<span>Canteras:' . $num_canteras . '</span>
-				<span>Huertos:' . $num_huertos . '</span>
-				<span>Mercados:' . $num_mercados . '</span>
-			</div>
-			';
-			?>
+<div id="juego" class="h-100">
+	<div class="row align-items-center h-100">
+		<div class="col-3">
+			<form class="row justify-content-center mb-2" action="/juegaciam" method="post">
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="templo">Templo</label>
+						<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
+					</div>
+				</div>
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="Cuartel">Cuartel</label>
+						<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
+					</div>
+				</div>
+				<div class="w-100 mb-3"></div>
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="aserradero">Aserradero</label>
+						<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
+					</div>
+				</div>
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="cantera">Cantera</label>
+						<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
+					</div>
+				</div>
+				<div class="w-100 mb-3"></div>
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="huerto">Huerto</label>
+						<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
+					</div>
+				</div>
+				<div class="col">
+					<div class="crear-edificio">
+						<label for="mercado">Mercado</label>
+						<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
+					</div>
+				</div>
+			</form>
 		</div>
-	</section>
+		<div class="col">
+			<div class="row">
+				<div class="col">
+					<div class="row border-end border-2">
+						<div class="col-4">
+							<img style="width:2rem" src="svgs/ingots.svg" alt="">
+						</div>
+						<div id="oro" class="fs-5 col">
+							<?php print $_SESSION['suministros']['oro']; ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3 border-end border-2">
+						<div class="col-4">
+							<img style="width:2rem" src="svgs/wood.svg" alt="">
+						</div>
+						<div id="madera" class="fs-5 col">
+							<?php print $_SESSION['suministros']['madera']; ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
 
-
-
+					<div class="row align-items-center mb-3 border-end border-2">
+						<div class="col-4">
+							<img style="width:2rem" src="svgs/food.svg" alt="">
+						</div>
+						<div id="comida" class="fs-5 col">
+							<?php print $_SESSION['suministros']['comida']; ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3">
+						<div class="col-4">
+							<img style="width:2rem" src="svgs/marbles.svg" alt="">
+						</div>
+						<div id="marmol" class="fs-5 col">
+							<?php print $_SESSION['suministros']['marmol']; ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="row align-items-center border-end border-2">
+						<div class="col">
+							Templos:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_templos ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3 border-end border-2">
+						<div class="col">
+							Cuarteles:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_cuarteles ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3 border-end border-2">
+						<div class="col">
+							Aserraderos:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_aserraderos ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3">
+						<div class="col">
+							Canteras:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_canteras ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3">
+						<div class="col">
+							Huertos:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_huertos ?>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<div class="row align-items-center mb-3">
+						<div class="col">
+							Mercados:
+						</div>
+						<div class="fs-5 col">
+							<?= $num_mercados ?>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bg" class="row mb-2">
+				<img src="imgs/ikariam.png">
+			</div>
+		</div>
+	</div>
 </div>

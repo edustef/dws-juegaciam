@@ -17,7 +17,11 @@ class RegisterUser extends UserModel
 
   public function attributes(): array
   {
-    return ['username' => 'username', 'password' => 'Password', 'passwordConfirm' => 'Password Confirm'];
+    return [
+      'username' => ['isSaved' => true, 'label' => 'Username'],
+      'password' => ['isSaved' => true, 'label' => 'Password'],
+      'passwordConfirm' => ['isSaved' => false, 'label' => 'Password Confirm']
+    ];
   }
 
   public function save()

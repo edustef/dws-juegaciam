@@ -1,89 +1,39 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: #dfc595;
-  width: 100vw;
   height: 100vh;
 }
+nav {
+  height: 6vh;
+}
 
-header {
-  height: 10vh;
+main {
+  height: 92vh;
+  margin-top: 2vh;
 }
 
 #bg {
-  max-width: 750px;
   border: 3px solid #362e20;
+  width: 60%;
+  margin: 0 auto;
 }
 
 #bg img {
   min-width: 100%;
 }
 
-#juego {
-  width: 100%;
-  height: 90vh;
+.crear-edificio {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
   align-items: center;
 }
 
-header {
-  display: flex;
-  align-items: center;
-  background-color: #362e20;
-  width: 100%;
-}
-
-header nav {
-  margin-left: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: baseline;
-}
-
-header a {
-  color: white;
-  text-decoration: none;
-  font-size: 1.2rem;
-  margin: 1rem;
-}
-
-header .logo a {
-  font-size: 2.5rem;
-}
-
-
-
-.sidebar {
-  flex-grow: 1;
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 30vw;
-  justify-content: start;
-  align-items: center;
-}
-
-.sidebar > * {
-  margin: 0.5rem;
+.crear-edificio input {
+  text-align: center;
+  font-weight: bold;
+  border: 3px solid #362e20;
+  background-color: white;
   width: 8rem;
 }
 
-.crear-edificio {
-  border: 3px solid #362e20;
-}
-
-.crear-edificio:hover {
-  border: 3px solid #ffffff;
-}
-
-.recursos {
-  width: 100%;
-}
-.recursos > * {
-  margin-bottom: 1rem;
+.crear-edificio input:hover {
+  filter: brightness(0.9) contrast(1.2);
 }

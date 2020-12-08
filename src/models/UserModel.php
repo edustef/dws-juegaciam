@@ -2,10 +2,9 @@
 
 namespace app\models;
 
-use edustef\mvcFrame\Application;
 use edustef\mvcFrame\DatabaseModel;
 
-abstract class UserModel extends DatabaseModel
+class UserModel extends DatabaseModel
 {
   public string $username = '';
   public string $password = '';
@@ -18,5 +17,21 @@ abstract class UserModel extends DatabaseModel
   public function primaryKey(): string
   {
     return 'id';
+  }
+
+  public function rules(): array
+  {
+    return [
+      'username' => [self::RULE_REQUIRED, [self::RULE_MIN, 'min' => 4]],
+      'password' => [self::RULE_REQUIRED]
+    ];
+  }
+
+  public function attributes(): array
+  {
+    return [
+      'username' => ['isSaved' => true, 'label' => 'Username'],
+      'password' => ['isSaved' => true, 'label' => 'Password']
+    ];
   }
 }

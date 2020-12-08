@@ -4,7 +4,7 @@
  * @var $model \app\models\LoginUser
  */
 
-use app\components\FormField;
+use app\views\components\FormField;
 
 ?>
 

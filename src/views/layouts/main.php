@@ -1,5 +1,6 @@
 <?php
 
+use app\views\components\Flash;
 use edustef\mvcFrame\Application;
 
 $app = Application::$app;
@@ -49,38 +50,33 @@ $errorFlash = $app->session->getFlashSession('error');
         </div>
 
         <?php if ($app->isGuest()) : ?>
-          <div class="flex p-3 text-white bg-green-500 rounded cursor-pointer text-center text-sm">
-            <a href="/login" class="rounded w-full flex justify-between items-center">
-              <span class="font-semibold">Login</span>
-              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-              </svg>
-            </a>
-          </div>
+          <a href="/login" class="p-3 text-white bg-green-500 hover:bg-green-600 rounded rounded w-full flex justify-between items-center">
+            <span class="font-semibold">Login</span>
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+            </svg>
+          </a>
         <?php else : ?>
-          <div class="flex p-3 text-white bg-red-500 rounded cursor-pointer text-center text-sm">
-            <a href="/logout" class="rounded w-full flex justify-between items-center">
-              <span class="font-semibold">Logout</span>
-              <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-              </svg>
-            </a>
-          </div>
+          <a href="/logout" class="p-3 text-white bg-red-500 hover:bg-red-600 rounded w-full flex justify-between items-center">
+            <span class="font-semibold">Logout</span>
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
+          </a>
         <?php endif ?>
       </div>
     </aside>
 
     <section class="w-full p-4">
-      <?php if ($successFlash) : ?>
-        <div class="p-4 bg-green-200 font-semibold rounded-md">
-          <?php echo $successFlash ?>
-        </div>
-      <?php endif; ?>
-      <?php if ($errorFlash) : ?>
-        <div class="p-4 bg-red-200 font-semibold rounded-md">
-          <?php echo $errorFlash ?>
-        </div>
-      <?php endif; ?>
+      <?php
+      if ($successFlash) {
+        echo new Flash($successFlash, 'green');
+      }
+
+      if ($errorFlash) {
+        echo new Flash($errorFlash, 'red');
+      }
+      ?>
       {{content}}
     </section>
   </main>

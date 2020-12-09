@@ -18,7 +18,7 @@ class Flash extends Component
   public function render(): string
   {
     return '
-      <div class="p-4 bg-' . $this->color . '-200 font-semibold rounded-md">
+      <div class="p-4 my-4 bg-' . $this->color . '-200 shadow-md font-semibold rounded-md">
         ' . $this->message . '
       </div>
     ';

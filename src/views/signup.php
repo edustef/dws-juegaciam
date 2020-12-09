@@ -14,11 +14,10 @@ use app\views\components\forms\FormField;
     <h1 class="mb-8 text-3xl text-center">Sign up</h1>
     <?=
       new Form([
-        'fields' => [
-          new FormField($model, 'username'),
-          new FormField($model, 'password'),
-          new FormField($model, 'passwordConfirm'),
-        ]
+        new FormField($model, 'username'),
+        new FormField($model, 'password'),
+        new FormField($model, 'passwordConfirm'),
+        '<button class="p-3 text-white font-semibold bg-green-500 hover:bg-green-600 rounded w-full">Create Account</button>'
       ], Form::METHOD_POST)
     ?>
     <div class="text-grey-dark mt-6">

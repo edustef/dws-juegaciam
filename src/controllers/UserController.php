@@ -13,9 +13,12 @@ use app\models\LoginUser;
 class UserController extends Controller
 {
 
-
   public function login(Request $request, Response $response)
   {
+    if (!Application::$app->isGuest()) {
+      $response->redirect('/');
+    }
+
     $user = new LoginUser();
     if ($request->isPost()) {
       $user->loadData($request->getBody());
@@ -33,6 +36,10 @@ class UserController extends Controller
 
   public function signup(Request $request, Response $response)
   {
+    if (!Application::$app->isGuest()) {
+      $response->redirect('/');
+    }
+
     $user = new RegisterUser();
     if ($request->isPost()) {
       $user->loadData($request->getBody());

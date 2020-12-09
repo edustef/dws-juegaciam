@@ -30,9 +30,9 @@ class FormField extends Component
   {
     $isInvalidClass = $this->model->hasErrors($this->name) ? 'is-invalid' : '';
     return '
-      <div class="flex flex-col">
+      <div class="flex flex-col mb-3">
           <label for="' . $this->name . '" class="">' . $this->labelName . '</label>
-          <input type="' . $this->type . '" class="block border border-grey-light w-full p-3 rounded mb-4" name="' . $this->name . '" placeholder="' . $this->labelName . '" />
+          <input type="' . $this->type . '" class="block border border-grey-light w-full p-3 rounded mb-1" name="' . $this->name . '" placeholder="' . $this->labelName . '" />
           <small class="text-red-600 inline-block h-4">' . $this->model->getFirstError($this->name) . '</small>
       </div>
     ';

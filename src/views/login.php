@@ -15,13 +15,12 @@ use app\views\components\forms\Form;
     <h1 class="mb-8 text-3xl text-center">Login</h1>
     <?=
       new Form([
-        'fields' => [
-          new FormField($model, 'username'),
-          new FormField($model, 'password'),
-        ]
+        new FormField($model, 'username'),
+        new FormField($model, 'password'),
+        '<button class="p-3 text-white font-semibold bg-green-500 hover:bg-green-600 rounded w-full">Log in</button>'
       ], Form::METHOD_POST)
     ?>
-    <div class="text-grey-dark mt-6">
+    <div class="mt-6">
       Already have an account?
       <a class="no-underline border-b border-blue text-blue" href="/login">
         Log in

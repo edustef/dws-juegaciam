@@ -10,7 +10,7 @@ class LoginUser extends UserModel
   {
     $user = self::findOne(['username' => $this->username]);
     if (!$user) {
-      $this->addErrorMessage('username', 'User does not exist with this email address');
+      $this->addErrorMessage('username', 'User with this username does not exist');
       return false;
     }
     if (!password_verify($this->password, $user->password)) {

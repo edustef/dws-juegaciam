@@ -1,7 +1,12 @@
 <?php
+
+use edustef\mvcFrame\Application;
+
+$app = Application::$app;
+$successFlash = $app->session->getFlashSession('success');
 //CABECERA DE HTML
 
-header("Refresh:5 url=juegaciam");
+// header("Refresh:5 url=juegaciam");
 // Establecer tiempo de vida de la sesión en segundos
 $inactividad = 60 * 15;
 // Comprobar si $_SESSION["timeout"] está establecida
@@ -150,7 +155,7 @@ if (isset($_POST['cantera_x'])) {
 		$_SESSION['suministros']['madera'] -= 50;
 		$_SESSION['suministros']['marmol'] -= 200;
 	} else
-		echo "<script> alert('No hay materia prima suficiente');</script>>";
+		echo "<script> alert('No hay materia prima suficiente');</script>";
 }
 
 //Construimos huerto
@@ -198,159 +203,111 @@ $_SESSION['suministros']['comida'] += 10 * $num_huertos;
 $_SESSION['suministros']['oro'] += 2 * $num_mercados;
 
 ?>
-
-<div id="juego" class="h-100">
-	<div class="row align-items-center h-100">
-		<div class="col-3">
-			<form class="row justify-content-center mb-2" action="/juegaciam" method="post">
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="templo">Templo</label>
-						<input type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
+<div class="bg-gray-100 md:h-screen">
+	<div class="px-4 py-8 flex flex-col md:flex-row h-full">
+		<div class="md:w-1/2 lg:w-2/6 h-full flex flex-col justify-center items-center">
+			<div class="flex flex-col items-center justify-self-start mb-16">
+				<?php if ($successFlash) : ?>
+					<div class="bg-green-200 rounded-md p-4">
+						<?php echo $successFlash ?>
 					</div>
+				<?php endif; ?>
+				<ul class="flex space-x-8">
+					<li>
+						<button class="bg-green-500 hover:bg-green-600 text-white p-2 rounded-md font-semibold">Guardar Partida</button>
+					</li>
+					<li>
+						<button class="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-md font-semibold">Cargar Partida</button>
+					</li>
+				</ul>
+				<a href="/" class="mt-6 bg-red-500 hover:bg-red-600 text-white p-2 rounded-md font-semibold">Quitar</a>
+			</div>
+			<form class="font-semibold flex flex-wrap justify-center items-center" action="/juegaciam" method="post">
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32 border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_templo.gif" name="templo" value="templo">
+					<label for="templo">Templo</label>
 				</div>
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="Cuartel">Cuartel</label>
-						<input type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
-					</div>
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32 border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_cuartel.gif" name="cuartel" value="cuartel">
+					<label for="Cuartel">Cuartel</label>
 				</div>
-				<div class="w-100 mb-3"></div>
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="aserradero">Aserradero</label>
-						<input type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
-					</div>
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32 border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_aserradero.png" name="aserradero" value="aserradero">
+					<label for="aserradero">Aserradero</label>
 				</div>
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="cantera">Cantera</label>
-						<input type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
-					</div>
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32  border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_cantera.png" name="cantera" value="cantera">
+					<label for="cantera">Cantera</label>
 				</div>
-				<div class="w-100 mb-3"></div>
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="huerto">Huerto</label>
-						<input type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
-					</div>
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32  border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_huerto.png" name="huerto" value="huerto">
+					<label for="huerto">Huerto</label>
 				</div>
-				<div class="col">
-					<div class="crear-edificio">
-						<label for="mercado">Mercado</label>
-						<input type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
-					</div>
+				<div class="m-2 p-2 flex flex-col items-center">
+					<input class="w-24 md:w-32  border-gray-400 border-2 hover:border-gray-600" type="image" src="imgs/crear_mercado.png" name="mercado" value="mercado">
+					<label for="mercado">Mercado</label>
 				</div>
 			</form>
 		</div>
-		<div class="col">
-			<div class="row">
-				<div class="col">
-					<div class="row border-end border-2">
-						<div class="col-4">
-							<img style="width:2rem" src="svgs/ingots.svg" alt="">
-						</div>
-						<div id="oro" class="fs-5 col">
-							<?php print $_SESSION['suministros']['oro']; ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3 border-end border-2">
-						<div class="col-4">
-							<img style="width:2rem" src="svgs/wood.svg" alt="">
-						</div>
-						<div id="madera" class="fs-5 col">
-							<?php print $_SESSION['suministros']['madera']; ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
+		<div class="h-full w-1 m-4 bg-gray-300"></div>
 
-					<div class="row align-items-center mb-3 border-end border-2">
-						<div class="col-4">
-							<img style="width:2rem" src="svgs/food.svg" alt="">
-						</div>
-						<div id="comida" class="fs-5 col">
-							<?php print $_SESSION['suministros']['comida']; ?>
-						</div>
+		<div class="flex flex-col items-center flex-grow">
+			<div class="flex flex-wrap  justify-around">
+				<div class="m-2 p-2 flex items-center">
+					<img class="w-8 mr-3" src="svgs/ingots.svg" alt="">
+					<div id="oro" class="font-semibold">
+						<?php print $_SESSION['suministros']['oro']; ?>
 					</div>
 				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3">
-						<div class="col-4">
-							<img style="width:2rem" src="svgs/marbles.svg" alt="">
-						</div>
-						<div id="marmol" class="fs-5 col">
-							<?php print $_SESSION['suministros']['marmol']; ?>
-						</div>
+				<div class="m-2 p-2 flex flex items-center">
+					<img class="w-8 mr-3" src="svgs/wood.svg" alt="">
+					<div id="madera" class="font-semibold">
+						<?php print $_SESSION['suministros']['madera']; ?>
 					</div>
 				</div>
-			</div>
-			<div class="row">
-				<div class="col">
-					<div class="row align-items-center border-end border-2">
-						<div class="col">
-							Templos:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_templos ?>
-						</div>
+				<div class="m-2 p-2 flex flex items-center">
+					<img class="w-8 mr-3" src="svgs/food.svg" alt="">
+					<div id="comida" class="font-semibold">
+						<?php print $_SESSION['suministros']['comida']; ?>
 					</div>
 				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3 border-end border-2">
-						<div class="col">
-							Cuarteles:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_cuarteles ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3 border-end border-2">
-						<div class="col">
-							Aserraderos:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_aserraderos ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3">
-						<div class="col">
-							Canteras:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_canteras ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3">
-						<div class="col">
-							Huertos:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_huertos ?>
-						</div>
-					</div>
-				</div>
-				<div class="col">
-					<div class="row align-items-center mb-3">
-						<div class="col">
-							Mercados:
-						</div>
-						<div class="fs-5 col">
-							<?= $num_mercados ?>
-						</div>
+				<div class="m-2 p-2 flex flex items-center">
+					<img class="w-8 mr-3" src="svgs/marbles.svg" alt="">
+					<div id="marmol" class="font-semibold">
+						<?php print $_SESSION['suministros']['marmol']; ?>
 					</div>
 				</div>
 			</div>
-			<div id="bg" class="row mb-2">
-				<img src="imgs/ikariam.png">
+
+			<div class="flex font-semibold flex-wrap justify-around">
+				<div class="m-2 p-2">
+					<span class=""> Templos: </span>
+					<span class=""> <?= $num_templos ?> </span>
+				</div>
+				<div class="m-2 p-2">
+					<span class=""> Cuarteles: </span>
+					<span class=""> <?= $num_cuarteles ?> </span>
+				</div>
+				<div class="m-2 p-2">
+					<span class=""> Aserraderos: </span>
+					<span class=""> <?= $num_aserraderos ?> </span>
+				</div>
+				<div class="m-2 p-2">
+					<span class=""> Canteras: </span>
+					<span class=""> <?= $num_canteras ?> </span>
+				</div>
+				<div class="m-2 p-2">
+					<span class=""> Huertos: </span>
+					<span class=""> <?= $num_huertos ?> </span>
+				</div>
+				<div class="m-2 p-2">
+					<span class=""> Mercados: </span>
+					<span class=""> <?= $num_mercados ?> </span>
+				</div>
+			</div>
+
+			<div class="self-stretch flex-grow">
+				<img class="object-contain mx-auto h-full" src="imgs/ikariam.png">
 			</div>
 		</div>
 	</div>

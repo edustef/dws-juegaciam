@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "edustef/php-mvc-framework",
-            "version": "v1.0.4",
+            "version": "v1.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/edustef/php-mvc-framework.git",
-                "reference": "32573d5c6c14382483eb0d5743af60b035c79872"
+                "reference": "3d4e9f5286e6c54163d56cbbd1a3430d6cdda837"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/edustef/php-mvc-framework/zipball/32573d5c6c14382483eb0d5743af60b035c79872",
-                "reference": "32573d5c6c14382483eb0d5743af60b035c79872",
+                "url": "https://api.github.com/repos/edustef/php-mvc-framework/zipball/3d4e9f5286e6c54163d56cbbd1a3430d6cdda837",
+                "reference": "3d4e9f5286e6c54163d56cbbd1a3430d6cdda837",
                 "shasum": ""
             },
             "type": "library",
@@ -33,11 +33,7 @@
                     "email": "eduardstefan290@gmail.com"
                 }
             ],
-            "support": {
-                "issues": "https://github.com/edustef/php-mvc-framework/issues",
-                "source": "https://github.com/edustef/php-mvc-framework/tree/v1.0.4"
-            },
-            "time": "2020-12-08T19:22:15+00:00"
+            "time": "2020-12-09T01:32:41+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -89,10 +85,6 @@
                 "Result-Type",
                 "result"
             ],
-            "support": {
-                "issues": "https://github.com/GrahamCampbell/Result-Type/issues",
-                "source": "https://github.com/GrahamCampbell/Result-Type/tree/v1.0.1"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -158,10 +150,6 @@
                 "php",
                 "type"
             ],
-            "support": {
-                "issues": "https://github.com/schmittjoh/php-option/issues",
-                "source": "https://github.com/schmittjoh/php-option/tree/1.7.5"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -234,9 +222,6 @@
                 "polyfill",
                 "portable"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-ctype/tree/v1.20.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -314,9 +299,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.20.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -397,9 +379,6 @@
                 "portable",
                 "shim"
             ],
-            "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.20.0"
-            },
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -480,10 +459,6 @@
                 "env",
                 "environment"
             ],
-            "support": {
-                "issues": "https://github.com/vlucas/phpdotenv/issues",
-                "source": "https://github.com/vlucas/phpdotenv/tree/v5.2.0"
-            },
             "funding": [
                 {
                     "url": "https://github.com/GrahamCampbell",
@@ -505,5 +480,5 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "1.1.0"
 }

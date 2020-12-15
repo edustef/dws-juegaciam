@@ -21,7 +21,6 @@ class JuegoController extends Controller
     if ($request->isAjax()) {
       echo json_encode($this->resolveAjax($request->getBody()));
     }
-    Application::$app->session->setFlashSession('success', 'Logged in successfully');
     return $this->render('juegaciam');
   }
 
